@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>chess</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class=contain>
+        <div class=lettrs>
+            12345678
+        </div>
+        <div class=numchess>
+           <div class=numchess-num> abcdefgh</div>
+           
+            <div class=numchess-chess id=contelem>
+                <script>
+                    //data
+                    let chessboard = [
+                        0, 1, 0, 1, 0, 1, 0, 1,
+                        1, 0, 1, 0, 1, 0, 1, 0,
+                        0, 1, 0, 1, 0, 1, 0, 1,
+                        1, 0, 1, 0, 1, 0, 1, 0,
+                        0, 1, 0, 1, 0, 1, 0, 1,
+                        1, 0, 1, 0, 1, 0, 1, 0,
+                        0, 1, 0, 1, 0, 1, 0, 1,
+                        1, 0, 1, 0, 1, 0, 1, 0,
+                    ];
+                    let figures = [
+                        's', 'p', null, null, null, null, 'p', 's',
+                        'h', 'p', null, null, null, null, 'p', 'h',
+                        'l', 'p', null, null, null, null, 'p', 'l',
+                        'k', 'p', null, null, null, null, 'p', 'k',
+                        'q', 'p', null, null, null, null, 'p', 'q',
+                        'l', 'p', null, null, null, null, 'p', 'l',
+                        'h', 'p', null, null, null, null, 'p', 'h',
+                        's', 'p', null, null, null, null, 'p', 's',
+                    ]
+                    //func
+                    var isEven = function(numtocheck) {
+                        return (numtocheck % 2 == 0) ? 1 : 0;
+                    };
+
+                    //create
+
+                    let contelem = document.getElementById('contelem');
+                    let colr = 1;
+
+                    for (let j = 1; j <= 8; j++) {
+                        for (let i = 1; i <= 8; i++) {
+                            let divnam = document.createElement('divnam');
+
+                            let chck = isEven(chessboard[colr - 1])
+                            console.log(chck)
+                            chck == 1 ?
+                                divnam.className = "chte" :
+                                divnam.className = "chte-bl";
+
+
+                            divnam.innerHTML = figures[colr - 1];
+                            contelem.appendChild(divnam);
+                            colr++;
+                        }
+                    }
+
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
